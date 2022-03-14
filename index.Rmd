@@ -14,3 +14,9 @@ This site will provide step by step instructions for Toolik LTER Terrestrial Pla
 # Background 
 
 - what is relative plant cover and why do we do it?
+
+[In the feild - data collection](Rmd/Data_collection.Rmd)  
+
+[Entering data](Rmd/Data_collection.Rmd)  
+
+[Clean and calculate relative cover](Rmd/clean_and_calculate_cover.Rmd)
