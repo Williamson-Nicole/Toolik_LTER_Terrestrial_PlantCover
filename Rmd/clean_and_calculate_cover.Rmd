@@ -1,0 +1,165 @@
+---
+title: "Process_cover_data"
+author: "Nicole"
+date: "3/11/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo = FALSE}
+rm(list = ls())
+```
+
+Use this`getwd()` to check working directory. Will most likely be whatever folder your Rmd file is in. If you need to change it for some reason use `setwd()` 
+```{r, echo = FALSE, include=FALSE}
+getwd()
+#setwd()
+```
+
+# Downloading/loading packages
+
+Use `install.packages` to download and install a new R package. You only need to do this once, then you can just use `library()` to load it and be able to call functions within it. and load the package libraries.  
+
+**TIP: It's generally considered best practice to keep the commands to call all the packages you need to use at the top of the document**  
+
+`tidyr`, `dplyr`, and `readr` are probably the most commonly used packages for data wrangling/cleaning.`ggplot2` is very common for creating publication quality figures.  
+
+**Note: The order which you install packages is important. Functions with the same names will be masked by packages loaded in after the previous.**  
+Ex: The `select()` function from `MASS` will be masked by `select()` from `dplyar` 
+```{r, message=FALSE, warning=FALSE}
+library("leaflet")
+library("MASS") #used for post-hoc test (lda)
+library("tidyr")
+library("dplyr")
+library("readr")
+library("ggplot2")
+library("ggpubr")
+```
+
+# Data Wrangling
+
+### Load in data and merge datasets:
+
+Load in each years .csv files containing the data
+```{r}
+test_data <- read.csv("../Data/Test_data.csv", header = TRUE)
+```
+
+Look at the data to see what it contains  
+*Make sure the column names in each data set match so they can be merged together*
+```{r, message=FALSE, results='hide'}
+head(test_data) #opens first 6 rows
+tail(test_data) #opens last 6 rows
+summary(test_data)
+str(test_data) #tells us what data types (numbers, factors, etc) are in the data frame
+```
+
+
+### Transform from wide to long format
+```{r}
+test_long <- test_data %>%
+  filter(date != "drop") %>%
+  pivot_longer(cols = -c(date, region, treatment, block, species), names_to = "quad_num", values_to = "cover") 
+```
+
+### Remove any data that you will not need for the analysis
+
+In this case we can remove unknowns, vole activity, tussock number...ect.
+```{r}
+#Returns a list of unique species names. Use this to see what you want to eliminate. Rerun after you remove data to make sure it worked. 
+unique(test_long$species) 
+
+#Remove data you don't need/want
+test_long <- test_long %>% filter(species != "Unk.N2" & species != "vole hole (#)" & species != "chopped vole litter " & species != "tussock #" & species != "sampled " & species != "latrienes (%)" & species != "vole trail (%)" & species != "Severed vole litter" & species != "trampled ")
+```
+
+### Fix naming convention errors
+
+Rename "rel.cov" column to "rel_cov"
+```{r}
+relcov_08_21 <- relcov_08_21 %>%
+  rename(rel_cov = rel.cov)
+```
+
+Check unique vales in each column to make sure that there are not naming errors
+```{r, results='hide'}
+unique(relcov_08_21$species)
+```
+
+If there are mistakes then rename them using the code below and recheck unique values again to make sure the recode worked. *make sure you didn't loose any observations*
+```{r}
+
+#fix naming convention errors 
+relcov_08_21$species <- relcov_08_21$species %>% 
+  recode("bare " = "bare", "Litter" = "litter", "Moss" = "moss", "Lichen " = "lichen","Lichen" = "lichen", "Fr boil" = "frost boil", "St. D. Sal pul" = "St. D. Sal", "Ev litter" = "Eri vag litter", "Grass ex." = "grass")
+
+#simplify things identified to species level  that shouldn't be 
+  #St.D.
+relcov_08_21$species <- relcov_08_21$species %>% 
+recode("St. D. Led Pal" = "St. D", "Dead Evrg" = "St. D", "Dead Bet" = "St. D", "St. D. Bet" = "St. D", "St. D. Sal" = "St. D", "St. D. Bet." = "St. D", "St. D. Evrg" = "St. D")
+  #litter
+relcov_08_21$species <- recode(relcov_08_21$species, "Eri vag litter" = "litter")
+```
+
+Sum functional cover across species within quadrats. This likely wont change the relative cover for most species unless they were listed more than once in a quadrat but it's good to do to insure accuracy after fixing naming conventions.
+```{r}
+relcov_08_21 <- (relcov_08_21) %>% group_by(year, block, plot, quad, species) %>% summarise_at(vars(rel_cov), list(rel_cov = sum ), na.rm = TRUE)
+```
+
+
+
+### Relativize cover
+
+1. First we need to sum cover values across all species within a quadrat
+```{r}
+test_quadsum <- (test_long) %>% 
+  group_by(date, region, treatment, block, quad_num) %>%
+  summarise(sum_quad = sum(cover)) %>%
+  ungroup()
+```
+2. Then we join the new table (that has the sum of all the species cover for a quadrat), with original table
+```{r}
+test_join <- left_join(test_long, test_quadsum, by= c("date", "region", "treatment", "block", "quad_num"))
+```
+3. Then we divide each cover value for a species in a quadrat by the sum of all cover values in that quadrat, and then drop the old 
+```{r}
+test_clean <- test_join %>%
+  mutate(relcov = cover/sum_quad) %>%
+  select(-sum_quad, -cover)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,64 @@
+---
+title: "data_entry"
+author: "Nicole"
+date: "3/11/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Data entry template
+
+Download and use the template below to enter data 
+
+**Do not edit column names or add any new ones**  
+```{r, echo=FALSE}
+xfun::embed_file('../Data/Data_entry_template.csv', text = 'Download TEMPLATE here')
+``` 
+
+  **See an example of how to enter data into this template below**
+  
+  - This example show data entered from 3 different plots; Block 1 GHNP, Block 1 CT, and Block 2 GHNP  
+```{r, echo=FALSE}
+xfun::embed_file('../Data/Test_data.csv', text = 'Download EXAMPLE here')
+``` 
+
+# Naming conventions
+**Be mindful of naming conventions: See tables below** 
+
+- Sites: all uppercase letters 
+- Treatments: naming conventions should be all uppercase, no spaces, or any other symbols
+- Species: we use three letter codes for genus and species. The first letter of genus code should be capitalized, everything else lower case
+
+**FULL LIST OF TREATMENT & SITE NAMING CONVENTIONS**  
+```{r, echo=FALSE}
+xfun::embed_file('../Data/Site_Treatment_codes.csv', text = 'Download SITE/TREATMENT LIST here')
+``` 
+
+**FULL LIST OF SPECIES NAMING CONVENTIONS**  
+```{r, echo=FALSE}
+xfun::embed_file('../Data/SpeciesList_naming_conventions.csv', text = 'Download SPECIES LIST here')
+```
+
+# Naming convention erros 
+**Be mindful of common naming convention errors!**
+*For all columns, but especially treatment and species names*
+
+- extra spaces (EX: `"Bet nan"` vs `"Bet nan "` will be read in as a unique species name)
+- periods (EX: `"St. D. Bet"` vs `"St. D Bet"` will be read in as a unique species name)
+- capitalization (EX: `"Bet nan"` vs `"Bet Nan"` vs `"bet nan"` will all be read in as unique species names)
+- spelling errors
+
+
+# Entering cover values: 
+
+- Should be entered as a decimal (ex: 25% cover should be entered as 0.25)
+- **If a species isn't present then enter "0"** DO NOT LEAVE BLANK, or enter any other symbols or values
+  - exampled of things **not to enter:** `"NA"`, `"-"`, `"none"`
+
+**Leave a blank row separating data from one plot to another.** In the "date" column, type "drop"
+
+- again be mindful of spaces and capitalization. (AKA do not type `"Drop"`, `"drop "`, or `"DROP"`)
+

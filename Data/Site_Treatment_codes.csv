@@ -1,0 +1,32 @@
+site code,full site name
+MAT89,Arc-LTER: 1989 Moist Acidic Tussock Tundra 
+06MAT,Arc-LTER: Low Nutrient MAT (06MAT)
+HTH,Arc-LTER: Dry Heath 
+WSG,Arc-LTER: Wet Sedge
+MNAT,Arc-LTER: Non-acidic Tussock 
+NANT,Arc-LTER: Non-acidic Non-Tussock
+SHB,Arc-LTER: Shrub Sites
+HST,Arc-LTER: Historic Site 
+,
+,
+Treatment codes,Description 
+N,Nitrogen only 
+P,Phosporous only 
+NP,Nitrogen and Phosphorous  
+CT,Control 
+GH,Greenhouse 
+SHCT,Shade house control 
+SHNP,Shade house plus nitrogen and phosphorus 
+GHCT,Greenhouse control 
+GHNP,Greenhouse plus nitrogen and phosphorus
+EXCT,Exclosure control 
+EXNP,Exclosure control plus nitrogen and phosphorus 
+S,Sulfer 
+L,Lime 
+NH4-P,5 gN/m2 as NH4Cl + 2.5 gP/m2
+NO3-P,5 gN/m2 as NaNO3 + 2.5 gP/m3
+F0.5,0.5 gN/m2 + 0.25 gP/m4
+F1,1 gN/m2 as NH4Cl + 0.5 gP/m5
+F2,2 gN/m2 as NH4Cl + 1 gP/m6
+F5,5 gN/m2 as NH4Cl + 2.5 gP/m7
+F10,10 gN/m2 as NH4Cl + 5 gP/m8

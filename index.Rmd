@@ -1,0 +1,16 @@
+---
+title: "Data Management Plan for Toolik LTER Terrestrial Plant Cover"
+author: "Nicole Williamson"
+date: "3/11/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This site will provide step by step instructions for Toolik LTER Terrestrial Plant Cover data from collection to maintaining long term data sets on online databases. 
+
+# Background 
+
+- what is relative plant cover and why do we do it?

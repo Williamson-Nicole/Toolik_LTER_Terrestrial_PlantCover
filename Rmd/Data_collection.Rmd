@@ -1,0 +1,34 @@
+---
+title: "DataCollection"
+author: "Nicole"
+date: "3/11/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Sites 
+<img src="../Images/LTER_site_locations_map.png" class="center">  
+
+# When?
+
+# Supplies 
+
+- Two or more 1 m^2 quadrats divided into 25 (20x20cm) subquadrats: constructed out of PVC and string 
+  - typically located under the lab
+- Data sheets (*Download file below*)
+  - Print on *Rite in the Rain* paper (*must use a laser printer for this or the ink wont dry**)
+- Clipboard and pencil  
+
+```{r, echo=FALSE}
+xfun::embed_file('../Data/LTER_cover_datasheet_template.csv', text = 'Download DATASHEET TEMPLATE here')
+```
+
+# Feild measurments
+
+
+
+
+
