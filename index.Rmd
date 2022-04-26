@@ -11,5 +11,5 @@ knitr::opts_chunk$set(echo = TRUE)
 # Plant Cover   
 
 * [In the feild - data collection](Rmd/Data_collection.html)  
-* [Entering data](Rmd/Data_entry.html)  
+* [Entering data](Rmd/data_entry.html)  
 * [Clean and calculate relative cover](Rmd/clean_and_calculate_cover.html)
