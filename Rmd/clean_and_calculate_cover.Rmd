@@ -80,8 +80,8 @@ test_long <- test_long %>% filter(species != "Unk.N2" & species != "vole hole (#
 
 Rename "rel.cov" column to "rel_cov"
 ```{r}
-relcov_08_21 <- relcov_08_21 %>%
-  rename(rel_cov = rel.cov)
+#relcov_08_21 <- relcov_08_21 %>%
+  #rename(rel_cov = rel.cov)
 ```
 
 Check unique vales in each column to make sure that there are not naming errors

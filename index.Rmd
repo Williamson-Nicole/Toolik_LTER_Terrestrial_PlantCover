@@ -1,9 +1,8 @@
 ---
-title: "Data Management Plan for Toolik LTER Terrestrial"
-author: "Nicole Williamson"
-date: "3/11/2022"
 output: html_document
 ---
+<img src="Images/toolik_terrestrial_LTER_header.png" class="center">  
+Nicole Williamson - 2022
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
