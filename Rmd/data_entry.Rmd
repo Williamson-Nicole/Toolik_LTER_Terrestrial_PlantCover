@@ -51,14 +51,25 @@ xfun::embed_file('../Data/SpeciesList_naming_conventions.csv', text = 'Download 
 - capitalization (EX: `"Bet nan"` vs `"Bet Nan"` vs `"bet nan"` will all be read in as unique species names)
 - spelling errors
 
-
 # Entering cover values: 
 
-- Should be entered as a decimal (ex: 25% cover should be entered as 0.25)
+- Should be entered as follows (ex: 25% cover should be entered as 25)
 - **If a species isn't present then enter "0"** DO NOT LEAVE BLANK, or enter any other symbols or values
   - exampled of things **not to enter:** `"NA"`, `"-"`, `"none"`
+  - also do not enter "<1". R cannot read this. Instead we standardize this so that any species cover that is <1 will be entered as 0.5 (aka half a percent)
 
 **Leave a blank row separating data from one plot to another.** In the "date" column, type "drop"
 
 - again be mindful of spaces and capitalization. (AKA do not type `"Drop"`, `"drop "`, or `"DROP"`)
+
+# NOTES
+
+All notes for cover data should be recorded in a separate file using the template provided below:  
+```{r, echo=FALSE}
+xfun::embed_file('../Data/cover_notes_template.csv', text = 'Download SPECIES LIST here')
+```  
+
+Entering notes in this way will allow you to be able to easily search for notes regarding data in specific plots/or quadrats
+
+
 

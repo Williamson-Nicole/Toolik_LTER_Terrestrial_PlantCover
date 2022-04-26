@@ -1,5 +1,5 @@
 ---
-title: "Data Management Plan for Toolik LTER Terrestrial Plant Cover"
+title: "Data Management Plan for Toolik LTER Terrestrial"
 author: "Nicole Williamson"
 date: "3/11/2022"
 output: html_document
@@ -9,14 +9,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This site will provide step by step instructions for Toolik LTER Terrestrial Plant Cover data from collection to maintaining long term data sets on online databases. 
+# Plant Cover   
 
-# Background 
-
-- what is relative plant cover and why do we do it?
-
-[In the feild - data collection](Rmd/Data_collection.Rmd)  
-
-[Entering data](Rmd/Data_collection.Rmd)  
-
-[Clean and calculate relative cover](Rmd/clean_and_calculate_cover.Rmd)
+* [In the feild - data collection](Rmd/Data_collection.html)  
+* [Entering data](Rmd/Data_collection.html)  
+* [Clean and calculate relative cover](Rmd/clean_and_calculate_cover.html)

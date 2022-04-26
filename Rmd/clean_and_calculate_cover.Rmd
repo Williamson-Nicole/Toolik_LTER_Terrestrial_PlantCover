@@ -62,7 +62,7 @@ str(test_data) #tells us what data types (numbers, factors, etc) are in the data
 ```{r}
 test_long <- test_data %>%
   filter(date != "drop") %>%
-  pivot_longer(cols = -c(date, region, treatment, block, species), names_to = "quad_num", values_to = "cover") 
+  pivot_longer(cols = -c(date, year, region, site, treatment, block, species), names_to = "quad_num", values_to = "cover") 
 ```
 
 ### Remove any data that you will not need for the analysis
@@ -106,7 +106,7 @@ relcov_08_21$species <- recode(relcov_08_21$species, "Eri vag litter" = "litter"
 
 Sum functional cover across species within quadrats. This likely wont change the relative cover for most species unless they were listed more than once in a quadrat but it's good to do to insure accuracy after fixing naming conventions.
 ```{r}
-relcov_08_21 <- (relcov_08_21) %>% group_by(year, block, plot, quad, species) %>% summarise_at(vars(rel_cov), list(rel_cov = sum ), na.rm = TRUE)
+relcov_08_21 <- (relcov_08_21) %>% group_by(year, region, site, block, plot, quad, species) %>% summarise_at(vars(rel_cov), list(rel_cov = sum ), na.rm = TRUE)
 ```
 
 
@@ -122,7 +122,7 @@ test_quadsum <- (test_long) %>%
 ```
 2. Then we join the new table (that has the sum of all the species cover for a quadrat), with original table
 ```{r}
-test_join <- left_join(test_long, test_quadsum, by= c("date", "region", "treatment", "block", "quad_num"))
+test_join <- left_join(test_long, test_quadsum, by= c("date", "region", "site", "treatment", "block", "quad_num"))
 ```
 3. Then we divide each cover value for a species in a quadrat by the sum of all cover values in that quadrat, and then drop the old 
 ```{r}
