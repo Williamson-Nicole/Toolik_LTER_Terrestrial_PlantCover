@@ -1,0 +1,22 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<img src="../Images/LTER_plot_set_up_header.png" class="center">  
+*Nicole Williamson* - 2022
+
+
+
+
+# Sites
+<img src="../Images/LTER_site_locations_map.png" class="center">  
+
+# Links To Site Maps
+
+# Fertilization 
+
+# Greenhouses & Shade Houses

@@ -12,21 +12,42 @@ knitr::opts_chunk$set(echo = TRUE)
 # Sites 
 <img src="../Images/LTER_site_locations_map.png" class="center">  
 
-# When?
+# When?  
+
+* Plant cover should be estimated around "peak green" (when plants are at their greenest)
+* This typically occurs in mid July but can vary year to year depending on if it is an early or late spring
 
 # Supplies 
 
-- Two or more 1 m^2 quadrats divided into 25 (20x20cm) subquadrats: constructed out of PVC and string 
-  - typically located under the lab
-- Data sheets (*Download file below*)
-  - Print on *Rite in the Rain* paper (*must use a laser printer for this or the ink wont dry**)
-- Clipboard and pencil  
+* Two or more 1 m^2 quadrats divided into 25 (20x20cm) subquadrats: constructed out of PVC and string 
+  * typically located under the lab
+* Data sheets (*Download file below*)
+  * Print on *Rite in the Rain* paper (*must use a laser printer for this or the ink wont dry**)
+* Clipboard and pencil  
 
 ```{r, echo=FALSE}
 xfun::embed_file('../Data/LTER_cover_datasheet_template.csv', text = 'Download DATASHEET TEMPLATE here')
 ```
 
-# Feild measurments
+# Feild measurments  
+
+* There is an 8m long transect in each plot where we measure plant cover each year
+  * 1 m^2 quadrats are placed side by side down this transect
+  *Typically we use 2-3 qudrants at a time and work in teams of 3-4 (2-3 observers and/or 1-2 recorders)  
+  
+  
+  
+* To estimate plant cover do your best to get a birds-eye view of the quadrant
+* One 20x20cm sub square represents about % 4 of the area of the quadrant 
+* Using this as a guide you will estimate the % area of the plot a given species makes up. Typically it is easiest to go square by square and add up as you go  
+
+**! Calibration !**
+
+An important step before you start recording data is to **"Calibrate"** with the other observers to make sure you are all getting around the same numbers  
+
+
+
+
 
 
 
