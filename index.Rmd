@@ -10,16 +10,21 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # LTER Plot Set-Up
 
-* [Setting up/taking down the plots](Rmd/LTER_plot_setup.html) 
+* [Setting up/taking down greenhouses & shade houses](Rmd/LTER_plot_setup.html) 
+* [Fertilizing the plots]()
 
 # Plant Cover   
 
 * [In the feild - data collection](Rmd/Data_collection.html)  
 * [Entering data](Rmd/data_entry.html)  
+* [QAQC & Storing Data]()
 * [Clean and calculate relative cover](Rmd/clean_and_calculate_cover.html)
+
 
 # NDVI / Unispec
 
 * [In the feild - data collection]() 
 * []()
-* []()
+* []()  
+
+
